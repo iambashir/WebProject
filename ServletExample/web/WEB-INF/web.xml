@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    
+    <!-- Servlet 01 -->
+    <servlet>
+        <servlet-name>ShowRequestHeaders</servlet-name>
+        <servlet-class>com.java.servlet.ShowRequestHeaders</servlet-class>
+        <init-param>
+            <param-name>version</param-name>
+            <param-value>1.0</param-value>
+        </init-param>
+    </servlet>
+        <!-- Servlet mapping -->
+    <servlet-mapping>
+        <servlet-name>ShowRequestHeaders</servlet-name>
+        <url-pattern>/show-request-headers</url-pattern>
+    </servlet-mapping>
+    <!-- Servlet 02 -->
+    <servlet>
+        <servlet-name>DemoServletConfig</servlet-name>
+        <servlet-class>com.java.servlet.DemoServletConfig</servlet-class>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>system</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>oracle</param-value>
+        </init-param>
+    </servlet>
+    
+    <!-- Servlet 03 -->
+    <servlet>
+        <servlet-name>DemoServletContext</servlet-name>
+        <servlet-class>com.java.servlet.DemoServletContext</servlet-class>
+    </servlet>
+    
+
+    
+     <!-- Servlet mapping -->
+    <servlet-mapping>
+        <servlet-name>DemoServletConfig</servlet-name>
+        <url-pattern>/demo_servlet_config</url-pattern>
+    </servlet-mapping>
+    
+     <!-- Servlet mapping -->
+     <servlet-mapping>
+        <servlet-name>DemoServletContext</servlet-name>
+        <url-pattern>/demo_servlet_context</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    <context-param>
+        <param-name>dname</param-name>
+        <param-value>sun.jdbc.odbc.JdbcOdbcDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>system</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>oracle</param-value>
+    </context-param>
+    
+    
+    <listener>
+        <listener-class>com.java.servlet.MyListener</listener-class>
+    </listener>
+    
+    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

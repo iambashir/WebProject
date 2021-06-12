@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <servlet>
+        <servlet-name>ScopedVars</servlet-name>
+        <servlet-class>com.example.el.ScopedVars</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BeanProperties</servlet-name>
+        <servlet-class>com.example.el.BeanProperties</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Collections</servlet-name>
+        <servlet-class>com.example.el.Collections</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Conditionals</servlet-name>
+        <servlet-class>com.example.el.Conditionals</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ScopedVars</servlet-name>
+        <url-pattern>/scoped-vars</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BeanProperties</servlet-name>
+        <url-pattern>/bean-properties</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Collections</servlet-name>
+        <url-pattern>/collections</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Conditionals</servlet-name>
+        <url-pattern>/conditionals</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>BeanPopulateServlet</servlet-name>
+        <servlet-class>com.apress.projsp.PopulateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BeanPopulateServlet</servlet-name>
+        <url-pattern>/populate-servlet</url-pattern>
+    </servlet-mapping>
+    <!--    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <el-ignored>true</el-ignored>
+        </jsp-property-group>
+    </jsp-config>-->
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
