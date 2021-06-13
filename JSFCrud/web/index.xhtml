@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>JSF Crud</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </h:head>
+    <h:body>
+        <center class="mt-3">
+            <div>
+                <h:form >
+                    Id
+                    <h:inputText value="#{studentController.student.id}"></h:inputText><br/>
+
+                    Name
+                    <h:inputText value="#{studentController.student.name}" class="mt-2"></h:inputText><br/>
+
+                    Email
+                    <h:inputText value="#{studentController.student.email}" class="mt-2 mb-2"></h:inputText><br/>
+                    <h:selectOneRadio value="#{studentController.student.gender}">
+                        <f:selectItem itemLabel="Male" itemValue="Male"></f:selectItem>
+                        <f:selectItem itemLabel="Female" itemValue="Female"></f:selectItem>
+                    </h:selectOneRadio>
+                    <h:commandButton action="#{studentController.saveStudent()}" value="Save" class="mr-2"></h:commandButton>
+                    <h:commandButton action="#{studentController.updateStudent()}" value="Update"></h:commandButton>
+
+
+                </h:form>
+            </div>
+        </center>
+        <div>
+
+            <h:form>
+                <h:dataTable var="st" value="#{studentController.students}" class="table  mt-3">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                            #{st.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Name</f:facet>
+                            #{st.name}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Email</f:facet>
+                            #{st.email}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Gender</f:facet>
+                        #{st.gender}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Edit</f:facet>
+                        <h:commandButton action="#{studentController.displayData(st.id)}" value="Edit" class="btn btn-info"></h:commandButton>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Delete</f:facet>
+                        <h:commandButton action="#{studentController.deleteStudent(st.id)}" value="Delete" class="btn btn-danger"></h:commandButton>
+                    </h:column>
+
+
+                </h:dataTable>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

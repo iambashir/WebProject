@@ -14,7 +14,7 @@ public class Database {
               Class.forName("com.mysql.jdbc.Driver");
               Connection con = DriverManager.getConnection
                       ("jdbc:mysql://localhost:3306/jsptest",
-                      "root","root");
+                      "root","1234");
               return con;
           }
           catch(Exception ex) {

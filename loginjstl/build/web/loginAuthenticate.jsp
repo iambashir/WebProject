@@ -22,7 +22,7 @@
     <c:if test="${not empty param.username and not empty param.password}">
       <s:setDataSource var="ds" driver="com.mysql.jdbc.Driver"
                        url="jdbc:mysql://localhost:3306/jstlcrud"
-                       user="root" password="root"/>
+                       user="root" password="1234"/>
 
       <s:query dataSource="${ds}" var="selectQ">
         select count(*) as user_no from users

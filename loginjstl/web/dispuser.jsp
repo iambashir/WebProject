@@ -1,7 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="s" %>
 <s:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver"
-                   url="jdbc:mysql://localhost:3306/jstlcrud" user="root" password="root" />
+                   url="jdbc:mysql://localhost:3306/jstlcrud" user="root" password="1234" />
 <html>
     <head>
         <title>Query Example</title>
