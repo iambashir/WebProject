@@ -13,16 +13,16 @@
     </h:head>
 
     <h:body>
-        <h:form>
+        <h:form class = "text-danger">
 
             <center>
                 <h2><h:outputText value = "User Records"/> </h2>
             </center>
    
 
-            <h:dataTable  value ="#{userDao.userList()}" var="u"  class =" table table-striped table-hover table-bordered">
-            <h:column>
-                <f:facet name="header">ID</f:facet>
+            <h:dataTable  value ="#{userDao.userList()}" var="u"  class =" table  thead-dark table-striped table-hover table-bordered">
+            <h:column  >
+                <f:facet name="header" >ID</f:facet>
                 <h:outputText value="#{u.id}"/>
             </h:column>
             <h:column>
@@ -45,6 +45,22 @@
                 <f:facet name="header">Address</f:facet>
                 <h:outputText value="#{u.address}"/>
             </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Gender</f:facet>
+                    <h:commandButton action ="#{userDao.edit(u.id)}" value="Update" class =" btn-primary" >
+                    </h:commandButton >
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Address</f:facet>
+                    <h:commandButton action ="#{userDao.edit(u.id)}" value="Delete" class =" btn-primary" >
+                    </h:commandButton >
+                </h:column>
+                
+                
+                
+                
+                
         </h:dataTable>
 
 
