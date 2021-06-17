@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Index Form</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            
+            <h:form id="stForm">
+                <h2>Insert Students</h2>
+                <p:messages for="MessageId" showDetail="true" closable="true"/>
+                <p:messages for="MessageIdUp" showDetail="false" closable="true"/>
+                <h:panelGrid columns="2">
+                    
+                    <p:outputLabel value="ID: "/>
+                    <p:inputText value="#{studentController.student.id}" />
+
+                    <p:outputLabel value="Name: "/>
+                    <p:inputText value="#{studentController.student.name}" />
+
+                    <p:outputLabel value="Date of Birth: "/>
+                    <p:calendar value="#{studentController.student.dob}" />
+
+                    <p:outputLabel value="Gender: "/>
+                    <p:selectOneRadio value="#{studentController.student.gender}">
+                        <f:selectItem itemValue="Male" itemLabel="Male" />
+                        <f:selectItem itemValue="Female" itemLabel="Female" />
+                    </p:selectOneRadio>
+
+                    <p:outputLabel value="Email: "/>
+                    <p:inputText value="#{studentController.student.email}" />
+
+                    <p:outputLabel value="Course: "/>
+                    <p:selectManyCheckbox value="#{studentController.student.courses}">
+                        <f:selectItem itemValue="Java" itemLabel="Java" />
+                        <f:selectItem itemValue="WPS" itemLabel="WPS" />
+                        <f:selectItem itemValue="DDD" itemLabel="DDD" />
+                    </p:selectManyCheckbox>
+
+                    <p:outputLabel value="Location: "/>
+                    <p:selectOneMenu value="#{studentController.student.location}">
+                        <f:selectItem itemValue="null" itemLabel="Choose your location" />
+                        <f:selectItem itemValue="Dhaka" itemLabel="Dhaka" />
+                        <f:selectItem itemValue="Munshiganj" itemLabel="Munshiganj" />
+                        <f:selectItem itemValue="Narayanganj" itemLabel="Narayanganj" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Address: "/>
+                    <p:inputText value="#{studentController.student.address}" />
+
+                    <p:outputLabel value="Password: "/>
+                    <p:inputText value="#{studentController.student.password}"/>
+                
+                </h:panelGrid><br/>
+                    <p:commandButton type="submit" value="Save" action="#{studentController.saveSt()}" update=":dtable :stForm"/>
+                    <p:commandButton type="submit" value="Update" action="#{studentController.updateSt()}" update=":dtable :stForm"/>
+                    <p:commandButton type="submit" value="Delete" action="#{studentController.deleteSt()}" update=":dtable :stForm"/>
+                    <p:commandButton value="reset">
+                        <p:ajax update=":stForm" resetValues="true" />
+                    </p:commandButton>
+            </h:form>
+            <hr/>
+            <h2 align="center">All Students</h2>
+            <p:dataTable id="dtable" value="#{studentController.getAllstudent()}" var="stu">
+                        <p:column headerText="ID">
+                            <h:outputText value="#{stu.id}" />
+                        </p:column>
+
+                        <p:column headerText="Name">
+                            <h:outputText value="#{stu.name}" />
+                        </p:column>
+
+                        <p:column headerText="Gender">
+                            <h:outputText value="#{stu.gender}" />
+                        </p:column>
+                        <p:column headerText="Date of Birth">
+                            <h:outputText value="#{stu.dob}">
+                                <f:convertDateTime pattern="dd.MM.yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Email">
+                            <h:outputText value="#{stu.email}" />
+                        </p:column>
+                        <p:column headerText="Location">
+                            <h:outputText value="#{stu.location}" />
+                        </p:column>
+                        <p:column headerText="Address">
+                            <h:outputText value="#{stu.address}" />
+                        </p:column>
+
+                        <p:column headerText="Course">
+                            <p:dataList var="course" value="#{stu.courses}" type="ordered">
+                                <h:outputText value="#{course}"/>
+                            </p:dataList>
+                        </p:column>
+
+                        <p:column headerText="Password">
+                            <h:outputText value="#{stu.password}" />
+                        </p:column>
+
+            </p:dataTable>
+        </f:view>
+    </h:body>
+</html>
+

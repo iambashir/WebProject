@@ -1,0 +1,63 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.41-community-nt
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema hibernate_test
+--
+
+CREATE DATABASE IF NOT EXISTS hibernate_test;
+USE hibernate_test;
+
+--
+-- Definition of table `student_info`
+--
+
+DROP TABLE IF EXISTS `student_info`;
+CREATE TABLE `student_info` (
+  `id` int(11) NOT NULL auto_increment,
+  `address` varchar(255) default NULL,
+  `courses` tinyblob,
+  `dob` datetime default NULL,
+  `email` varchar(255) default NULL,
+  `gender` varchar(255) default NULL,
+  `location` varchar(255) default NULL,
+  `name` varchar(255) default NULL,
+  `password` varchar(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_info`
+--
+
+/*!40000 ALTER TABLE `student_info` DISABLE KEYS */;
+INSERT INTO `student_info` (`id`,`address`,`courses`,`dob`,`email`,`gender`,`location`,`name`,`password`) VALUES 
+ (3,'',0xACED0005757200135B4C6A6176612E6C616E672E537472696E673BADD256E7E91D7B470200007870000000027400044A617661740003575053,'2019-01-01 00:00:00','Monir@gmail.com','Male','Narayanganj','Monir',''),
+ (4,'Manikpur',0xACED0005757200135B4C6A6176612E6C616E672E537472696E673BADD256E7E91D7B47020000787000000001740003444444,'2017-07-02 00:00:00','sajid@gmail.com','Male','Munshiganj','Sajid','123dfg'),
+ (6,'Fatullah Stadium',0xACED0005757200135B4C6A6176612E6C616E672E537472696E673BADD256E7E91D7B470200007870000000027400044A617661740003575053,'2020-01-05 00:00:00','helal@gmail.com','Male','Narayanganj','Helal','12345'),
+ (9,'Deovhog',0xACED0005757200135B4C6A6176612E6C616E672E537472696E673BADD256E7E91D7B470200007870000000027400044A617661740003444444,'2019-11-03 00:00:00','rony@gamil.com','Male','Munshiganj','Rony','5421');
+/*!40000 ALTER TABLE `student_info` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
