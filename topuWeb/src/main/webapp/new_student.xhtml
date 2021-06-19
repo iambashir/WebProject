@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <title>User Details</title>
+        <h:outputStylesheet name="/css/bootstrap.min.css"/>
+    </h:head>
+
+    <body>
+        <div class="container col-md-6 offset-4">
+            <h:form>
+                Enter Full Name: <h:inputText class="form-control form-control-sm" value="#{student.name}" required="true"/>  
+                <br/>
+                Enter Email: <h:inputText class="form-control form-control-sm" value="#{student.email}" required="true"/>  
+                <br/>
+                Student Course: 
+                <h:selectOneRadio value="#{student.course}">
+                    <f:selectItem itemValue="Oracle" itemLabel="Oracle" />
+                    <f:selectItem itemValue="J2EE" itemLabel="JAVA/J2EE" />
+                    <f:selectItem itemValue="C#" itemLabel="C#" />
+                </h:selectOneRadio>
+                <br/>
+                <h:outputLabel>Area: </h:outputLabel>
+                <h:selectOneMenu value = "#{student.area}"> 
+                    <f:selectItem itemValue = "" itemLabel = "Select Your Area" /> 
+                    <f:selectItem itemValue = "Kakrial" itemLabel = "Kakrial" /> 
+                    <f:selectItem itemValue = "Motijhil" itemLabel = "Motijhil" /> 
+                    <f:selectItem itemValue = "New Market" itemLabel = "New Market" /> 
+                </h:selectOneMenu> 	
+                <br/>
+                Select Education:
+                <h:selectManyCheckbox value = "#{student.education}"> 
+                    <f:selectItem itemValue = "SSC" itemLabel = "SSC" /> 
+                    <f:selectItem itemValue = "HSC" itemLabel = "HSC" /> 
+                    <f:selectItem itemValue = "HONURS" itemLabel = "Honurs" /> 
+                </h:selectManyCheckbox>
+                <br/>
+                <h:outputLabel>Enter Address: </h:outputLabel>
+                <h:inputTextarea class="form-control form-control-sm" value="#{student.address}"/> 
+                <br/>
+                <h:commandButton class="btn btn-primary" value="Add New User" action="#{student.save()}"/>
+            </h:form>
+            <br/>
+            <h:form>
+                <h:dataTable value="#{student.studentLists()}" var="s" class="table table-striped table-hover table-bordered" >
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                        <h:outputText value="#{s.id}"/>
+                    </h:column>  
+                    <h:column>
+                        <f:facet name="header">Name</f:facet>
+                        <h:outputText value="#{s.name}"/>
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Email</f:facet>
+                        <h:outputText value="#{s.email}"/>
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Course</f:facet>
+                        <h:outputText value="#{s.course}"/>
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Education</f:facet>
+                        <ui:repeat value="#{s.education}" var="e">
+                            <h:outputText value="#{e}" />
+                        </ui:repeat>
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Area</f:facet>
+                        <h:outputText value="#{s.area}"/>
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Address</f:facet>
+                        <h:outputText value="#{s.address}"/>
+                    </h:column> 
+                    <h:column> 
+                        <f:facet name="header">Update</f:facet>
+                        <h:commandButton action = "#{student.edit(s.id)}" value="Edit" class="btn btn-primary"> 
+                        </h:commandButton>
+                    </h:column>
+                    <h:column> 
+                        <f:facet name="header">Delete</f:facet>
+                        <h:commandButton action = "#{student.delete(s.id)}" value="Delete" class="btn btn-danger"> 
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+
+            </h:form>
+        </div>
+    </body>
+</html>

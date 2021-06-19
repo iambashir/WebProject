@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>    
+        <title>Edit Your Record</title>
+        <h:outputStylesheet name="/css/bootstrap.min.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="form" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <h2 style="text-align: center" class="col-sm-4"> Update Your Record </h2>
+            </div>
+            <hr/>
+            
+<!--           <div class="form-group">
+                <h:outputLabel for="id" class="control-label col-sm-4">Id</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="id-id" value="#{user2.id}" class="form-control" validatorMessage="invalid">
+                        <f:validateRequired />
+                    </h:inputText>
+                </div>
+            </div> -->
+            
+            <div class="form-group">
+                <h:outputLabel for="code" class="control-label col-sm-2">Code</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="code-id" value="#{editUser2.code}" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="name" class="control-label col-sm-2">Name</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="name-id" value="#{editUser2.name}" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="quantity" class="control-label col-sm-2">Quantity</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="quantity-id" value="#{editUser2.quantity}" class="form-control"/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <h:outputLabel for="price" class="control-label col-sm-4">Price</h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="price-id" value="#{editUser2.price}" class="form-control" validatorMessage="Invalid"/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <h:outputLabel for="categorie" class="control-label col-sm-4"> Categorie </h:outputLabel>
+                <div class="col-sm-4">
+                    <h:inputText id="categorie-id" value="#{editUser2.categorie}" class="form-control" validatorMessage="Invalid"/>
+                </div>
+            </div>
+           
+            
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <center><h:commandButton value="Update" action="#{userDAO2.update(editUser2)}" class="btn btn-primary" style="width: 80px;"></h:commandButton></center>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>

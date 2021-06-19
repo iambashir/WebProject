@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>User Details</title>
+        <h:outputStylesheet name="/css/bootstrap.min.css"/>
+    </h:head>
+
+    <body>
+        <div class="container col-md-6 offset-4">
+            <h:form>
+                Enter Full Name: <h:inputText class="form-control form-control-sm" value="#{student.name}" required="true"/>  
+                <br/>
+                Enter Email: <h:inputText class="form-control form-control-sm" value="#{student.email}" required="true"/>  
+                <br/>
+                Student Course: 
+                <h:selectOneRadio value="#{student.course}">
+                    <f:selectItem itemValue="Oracle" itemLabel="Oracle" />
+                    <f:selectItem itemValue="J2EE" itemLabel="JAVA/J2EE" />
+                    <f:selectItem itemValue="C#" itemLabel="C#" />
+                </h:selectOneRadio>
+                <br/>
+                <h:outputLabel>Area: </h:outputLabel>
+                <h:selectOneMenu value = "#{student.area}"> 
+                    <f:selectItem itemValue = "" itemLabel = "Select Your Area" /> 
+                    <f:selectItem itemValue = "Kakrial" itemLabel = "Kakrial" /> 
+                    <f:selectItem itemValue = "Motijhil" itemLabel = "Motijhil" /> 
+                    <f:selectItem itemValue = "New Market" itemLabel = "New Market" /> 
+                </h:selectOneMenu> 	
+                <br/>
+                Select Education:
+                <h:selectManyCheckbox value = "#{student.education}"> 
+                    <f:selectItem itemValue = "SSC" itemLabel = "SSC" /> 
+                    <f:selectItem itemValue = "HSC" itemLabel = "HSC" /> 
+                    <f:selectItem itemValue = "HONURS" itemLabel = "Honurs" /> 
+                </h:selectManyCheckbox>
+                <br/>
+                <h:outputLabel>Enter Address: </h:outputLabel>
+                <h:inputTextarea class="form-control form-control-sm" value="#{student.address}"/> 
+                <br/>
+                <h:commandButton class="btn btn-primary" value="Add New User" action="#{student.save()}"/>
+            </h:form>
+        </div>
+    </body>
+</html>
+

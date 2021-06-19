@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>User Details</title>
+        <h:outputStylesheet name="/css/bootstrap.min.css"/>
+    </h:head>
+
+    <h:body>
+        <center>
+            <h2><h:outputText value="User Records"/></h2>
+        </center>
+        <div class="container col-md-6 offset-3">
+            <h:form>
+                <h:outputLabel>Enter Username: </h:outputLabel>
+                <h:inputText class="form-control form-control-sm" value="#{user.name}" required="true"/>  
+                <br/>
+                <h:outputLabel>Enter Email: </h:outputLabel>
+                <h:inputText class="form-control form-control-sm" value="#{user.email}" required="true"/>  
+                <br/>
+                <h:outputLabel>Enter Password: </h:outputLabel>
+                <h:inputText class="form-control form-control-sm" value="#{user.password}" required="true"/> 
+                <br/>
+                <h:outputLabel>Enter Gender: </h:outputLabel>
+                <h:inputText class="form-control form-control-sm" value="#{user.gender}"/>  
+                <br/>
+                <h:outputLabel>Enter Address: </h:outputLabel>
+                <h:inputText class="form-control form-control-sm" value="#{user.address}"/> 
+                <br/>
+                <h:commandButton class="btn btn-primary" value="Add New User" action="#{user.save()}"/>
+            </h:form>
+            <h:form>
+               <h:commandButton action="/new_student.xhtml" class="btn btn-primary float-right" value="Got to newdata"/> 
+            </h:form>
+            <h:form>
+               <h:commandButton action="/product.xhtml" class="btn btn-primary float-right" value="Got to Product"/> 
+            </h:form>
+            
+            <br/>
+            <h:form>
+                <h:dataTable value="#{userDao.userLists()}" var="u" class="table table-striped table-hover table-bordered" >
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                        <h:outputText value="#{u.id}"/>
+                    </h:column>  
+                    <h:column>
+                        <f:facet name="header">Username</f:facet>
+                        <h:outputText value="#{u.name}"/>
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Email</f:facet>
+                        <h:outputText value="#{u.email}"/>
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Password</f:facet>
+                        <h:outputText value="#{u.password}"/>
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Gender</f:facet>
+                        <h:outputText value="#{u.gender}"/>
+                    </h:column> 
+                    <h:column>
+                        <f:facet name="header">Address</f:facet>
+                        <h:outputText value="#{u.address}"/>
+                    </h:column> 
+                    <h:column> 
+                        <f:facet name="header">Update</f:facet>
+                        <h:commandButton action = "#{user.edit(u.id)}" value="Edit" class="btn btn-primary"> 
+                        </h:commandButton>
+                    </h:column>
+                    <h:column> 
+                        <f:facet name="header">Delete</f:facet>
+                        <h:commandButton action = "#{user.delete(u.id)}" value="Delete" class="btn btn-danger"> 
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
