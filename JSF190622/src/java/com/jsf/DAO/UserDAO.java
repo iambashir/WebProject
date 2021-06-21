@@ -55,7 +55,7 @@ public class UserDAO {
         try {
             connection= Database.getConnection();
             Statement stmt = connection.createStatement();
-            ResultSet rs=stmt.executeQuery("select * from products where id ="+(id));
+            ResultSet rs=stmt.executeQuery("select * from products where id = "+(id));
             rs.next();
                 pdt = new Product();
                 pdt.setId(rs.getInt("id"));
