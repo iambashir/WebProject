@@ -13,15 +13,15 @@ and open the template in the editor.
         <h:outputStylesheet name="/css/bootstrap.min.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    <h:body>
-        <div class = "container">
+    <h:body> <br/>
+        <div class = "container bg-info " style="border-radius: 10px;" >
         <h:form>
             <center>
                 <h2><h:outputText value="Product Purchaise"></h:outputText></h2>
             </center>
             <h:dataTable value="#{userDAO.usersList()}" var="u" class="table table-striped table-hover table-bordered">
                 <h:column>
-                    <f:facet name="header">ID</f:facet>
+                    <f:facet name="header" >ID</f:facet>
                     <h:outputText value="#{u.id}"></h:outputText>
                 </h:column>
                 <h:column>
@@ -56,7 +56,7 @@ and open the template in the editor.
             </h:dataTable>
             <h:commandButton action = "/create.xhtml" value="Create" class="btn btn-primary"> 
             </h:commandButton>
-        </h:form>
+        </h:form><br/>
         </div>
     </h:body>
 </html>

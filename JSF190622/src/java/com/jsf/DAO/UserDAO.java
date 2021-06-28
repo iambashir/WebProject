@@ -18,7 +18,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author Hiccup
+ * @author Bashir Hossain
  */
 @ManagedBean(name ="userDAO")
 public class UserDAO {

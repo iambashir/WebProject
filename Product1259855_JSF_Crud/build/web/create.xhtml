@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>    
+        <title>Save Your Record</title>
+        <h:outputStylesheet name="/css/bootstrap.min.css"/>
+    </h:head>
+    <h:body><br/> 
+        <div class="container bg-primary" style="border-radius: 10px; width: 400px"  >
+            <h:form id="form" class="form-horizontal">
+                <div class="form-group">
+                    <!--                <div class="col-sm-2"></div>-->
+                    <h2 style="text-align: center" >Save Your Record</h2>
+                </div>
+
+
+                <div>
+                    <label> Product Code :  </label>&nbsp;
+                    <h:inputText  class="form-control"   value="#{product.code}" >
+                    </h:inputText>
+                </div><br/>
+
+
+                <div>
+                    <label> Product Name :  </label>&nbsp;
+                    <h:inputText  class="form-control"   value="#{product.name}" >
+                    </h:inputText>
+                </div><br/>
+
+                <div>
+                    <label> Product Quantity :  </label>&nbsp;
+                    <h:inputText  class="form-control"   value="#{product.quantity}" >
+                    </h:inputText>
+                </div><br/>
+
+                <div>
+                    <label>Product Price :  </label>&nbsp;
+                    <h:inputText  class="form-control"   value="#{product.price}" >
+                    </h:inputText>
+                </div><br/>
+
+                <div>
+                    <label> Product Category :  </label>&nbsp;
+                    <h:inputText  class="form-control"   value="#{product.category}" >
+                    </h:inputText>
+                </div><br/>
+
+
+                <!--            
+                            <div class="form-group">
+                                <h:outputLabel for="name" class="control-label col-sm-2">Name</h:outputLabel>
+                                <div class="col-sm-4">
+                                    <h:inputText id="name-id" value="#{product.name}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="quantity" class="control-label col-sm-2">Quantity</h:outputLabel>
+                                <div class="col-sm-4">
+                                    <h:inputText id="quantity-id" value="#{product.quantity}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="price" class="control-label col-sm-2">Price</h:outputLabel>
+                                <div class="col-sm-4">
+                                    <h:inputText id="price-id" value="#{product.price}" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="category" class="control-label col-sm-2">Category</h:outputLabel>
+                                <div class="col-sm-4">
+                                    <h:inputText id="category-id" value="#{product.category}" class="form-control"/>
+                                </div>
+                            </div>-->
+
+
+
+                <div >
+                    <center>
+                        <!--                <div class="col-sm-4"></div>-->
+                        <div >
+                            <!--                    <div class="col-sm-2">-->
+                            <h:commandButton value="Save" action="#{product.save()}" class="btn btn-success" style="width: 80px;">
+                            </h:commandButton>&nbsp;&nbsp;
+                            <!--                    </div>
+                                                <div class="col-sm-1">
+                                                </div>-->
+                            <!--                    <div class="col-sm-2">-->
+                            <h:link outcome="index" value="View Users Record List" class="btn btn-success" />
+                            <!--                    </div>-->
+                        </div>
+                    </center>
+                </div><br/>
+            </h:form>
+        </div>
+        <br/>   
+    </h:body>
+</html>

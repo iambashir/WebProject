@@ -7,7 +7,7 @@
         <title>Edit Your Record</title>
         <h:outputStylesheet name="/css/bootstrap.min.css"/>
     </h:head>
-    <h:body>
+    <h:body> <br/> <div  class="container bg-primary" style=" border-radius: 10px">
         <h:form id="form" class="form-horizontal">
             <div class="form-group">
                 <div class="col-sm-2"></div>
@@ -47,9 +47,10 @@
             <div class="form-group">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
-                    <center><h:commandButton value="Update" action="#{userDAO.update(editProd)}" class="btn btn-primary" style="width: 80px;"></h:commandButton></center>
+                    <center><h:commandButton value="Update" action="#{userDAO.update(editProd)}" class="btn btn-success" style="width: 80px;"></h:commandButton></center>
                 </div>
             </div>
         </h:form>
+            </div>
     </h:body>
 </html>

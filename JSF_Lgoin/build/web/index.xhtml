@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Registration and Login</title>
+        <!--        <h:outputStylesheet name="/css/bootstrap.min.css"/>-->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body><br/>
+
+        <div class ="container bg-primary" style="border-radius: 10px; width: 500px;" >
+            <br/>
+            <div class="text-center"> <h3> Registration Page : </h3></div>
+            <h:form>
+                <div >
+                    <label> Username :  </label>&nbsp;
+                    <h:inputText  class="form-control"   value="#{user.username}" >
+                    </h:inputText>
+                </div><br/>
+
+                <div>
+                    <label>Password : </label>&nbsp;
+                    <h:inputSecret class="form-control"  value="#{user.password}">
+                    </h:inputSecret>
+                </div><br/>
+                <div>
+                    <h:commandButton value="Registration" action="#{userDAO.save(user)}" class="btn btn-success" >
+                    </h:commandButton>  
+                </div>
+
+<!--             <h:outputLabel value="#{user.msg}" class="control-label col-sm-4"></h:outputLabel>-->
+
+                <h5> &nbsp; <h:link style="color: white" outcome="login" value="Login Here"/></h5><br/>
+            </h:form>
+        </div>
+
+
+    </h:body>
+
+
+</html>
+

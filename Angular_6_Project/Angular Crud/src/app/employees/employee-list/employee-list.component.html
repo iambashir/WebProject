@@ -1,0 +1,27 @@
+<table class="table table-hover">
+  <tr>
+    <th>E ID</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th colspan="2">Action</th>
+  </tr>
+  <tr *ngFor="let emp of allEmployee">
+    <td>{{emp.catid}}</td>
+    <td>{{emp.catname}}</td>
+    <td>{{emp.description}}</td>
+    <td>
+      <a class="btn" (click)="editEmployee(emp)">
+        <i class="fa fa-edit"></i>
+      </a>
+    </td>
+    <td>
+      <a class="btn text-danger" (click)="deleteEmployee(emp.catid)">
+        <i class="fa fa-trash"></i>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<!-- <input [(ngModel)]="msg">
+
+{{msg}} -->
